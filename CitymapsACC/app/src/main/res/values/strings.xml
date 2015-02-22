@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Citymaps ACC</string>
+    <string name="action_clear_cache">Clear Cache</string>
+    <string name="prompt_cache_cleared">Image cache cleared</string>
+</resources>

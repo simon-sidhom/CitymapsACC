@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.citymaps.citymapsacc">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".MainActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/app_name">
+            <!-- NOTE: config changes is the quick and easy way to maintain state through orientation change.
+            I used this method because redrawing the views is expensive and unnecessary in this case.
+            If the view changed in landscape orientation or the state was more complex I would use
+            onSaveInstanceState with a parcelable object that represents the application state.
+            Then, in onCreate, I would check for a saved state and restore the activity to that state.
+            In this case onCreate is not called again after an orientation change and the views
+            I'm using do not need to be reinitialized. I chose to do it this way for two main reasons.
+            One, orientation changes are faster. And two, implementation speed is a factor for this project.-->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
