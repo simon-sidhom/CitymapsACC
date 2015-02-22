@@ -27,11 +27,9 @@ class CitymapsProxy {
     }
 
     public ArrayList<CitymapsPhoto> getCitymapsPhotos(Integer startIndex) throws JSONException {
-        String userId = "8ea239c4-c648-4009-a252-a220e018dc4b";
-        int limit = 20;
         String url = String.format(Locale.US,
                 "http://ndev-coreapi.citymaps.com/v2/activity/user/%1$s/images?offset=%2$d&limit=%3$d",
-                userId, startIndex, limit);
+                Constants.USER_ID, startIndex, Constants.IMAGE_LOAD_LIMIT);
         HttpResult httpResult = getHTTP(url);
         if (httpResult.getStatusCode() < 300) {
             return parseCitymapsPhotos(httpResult.getBody());

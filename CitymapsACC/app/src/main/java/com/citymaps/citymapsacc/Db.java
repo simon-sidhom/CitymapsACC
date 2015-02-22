@@ -48,13 +48,13 @@ class Db {
         Bitmap ret = null;
         SQLiteDatabase db = _dbHelper.getWritableDatabase();
         if (db != null) {
-            Cursor c = db.rawQuery(
-                    "select * from " + _dbHelper.TABLE_NAME_IMAGES
-                            + " where " + _dbHelper.COLUMN_NAME_INDEX + "=" + index, null
+            Cursor cursor = db.rawQuery(
+                    "select * from " + _dbHelper.TABLE_NAME_IMAGES +
+                            " where " + _dbHelper.COLUMN_NAME_INDEX + "=" + index, null
             );
-            if (c.getCount() > 0) {
-                c.moveToFirst();
-                ret = getBitmapFromByteArray(c.getBlob(c
+            if (cursor.getCount() > 0) {
+                cursor.moveToFirst();
+                ret = getBitmapFromByteArray(cursor.getBlob(cursor
                         .getColumnIndex(_dbHelper.COLUMN_NAME_BITMAP)));
             }
         }

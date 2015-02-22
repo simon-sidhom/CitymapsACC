@@ -3,4 +3,5 @@
     <string name="app_name">Citymaps ACC</string>
     <string name="action_clear_cache">Clear Cache</string>
     <string name="prompt_cache_cleared">Image cache cleared</string>
+    <string name="prompt_problem_getting_photos">Sorry there was a problem getting photos</string>
 </resources>

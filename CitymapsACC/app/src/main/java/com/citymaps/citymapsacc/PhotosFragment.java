@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class PhotosFragment extends Fragment implements GetPhotosAsync.OnPhotosReceivedListener {
 
     private static final String ARG_NUM_COLUMNS = "numColumns";
-    private int numColumns = 2; //default to two columns
+    private int numColumns = Constants.NUM_COLUMNS; //default number of columns
 
     private PhotosListAdapter photosListAdapter;
     private int index = 0;
@@ -70,8 +70,8 @@ public class PhotosFragment extends Fragment implements GetPhotosAsync.OnPhotosR
     }
 
     public class OnPhotosScrolledListener extends RecyclerView.OnScrollListener {
-        int totalItemCount;
         final StaggeredGridLayoutManager layoutManager;
+        int totalItemCount;
 
         public OnPhotosScrolledListener(StaggeredGridLayoutManager layoutManager) {
             this.layoutManager = layoutManager;
@@ -86,6 +86,7 @@ public class PhotosFragment extends Fragment implements GetPhotosAsync.OnPhotosR
             for (int position : lastVisiblePositions) {
                 if (position >= totalItemCount - layoutManager.getSpanCount()) {
                     onScrolledToBottom();
+                    break;
                 }
             }
         }

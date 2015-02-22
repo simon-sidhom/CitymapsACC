@@ -27,10 +27,6 @@ public class CitymapsImageView extends ImageView implements GetBitmapAsync.OnBit
         super(context, attrs, defStyleAttr);
     }
 
-    public CitymapsImageView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
-    }
-
     public void setImageUrl(String url, View progressView, int position) {
         this.progressView = progressView;
         progressView.setVisibility(VISIBLE);
@@ -46,16 +42,16 @@ public class CitymapsImageView extends ImageView implements GetBitmapAsync.OnBit
                         new ColorDrawable(Color.TRANSPARENT),
                         new BitmapDrawable(getResources(), bitmap)
                 });
-
-
+        transitionDrawable.setCrossFadeEnabled(true);
         setImageDrawable(transitionDrawable);
+
         if (progressView != null) {
             progressView.setVisibility(GONE);
         }
         setVisibility(VISIBLE);
+
         invalidate();
         requestLayout();
-        transitionDrawable.setCrossFadeEnabled(true);
         transitionDrawable.startTransition(TRANSITION_TIME_MILLIS);
     }
 }

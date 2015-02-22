@@ -10,7 +10,7 @@ import org.json.JSONException;
 import java.util.ArrayList;
 
 /**
- * AsyncTask to get an array of 20 CitymapsPhotos starting from the supplied index
+ * AsyncTask to get an array of Constants.IMAGE_LOAD_LIMIT CitymapsPhotos starting from the supplied index
  */
 class GetPhotosAsync extends AsyncTask<Integer, Void, ArrayList<CitymapsPhoto>> {
     private final OnPhotosReceivedListener onPhotosReceivedListener;
@@ -43,7 +43,8 @@ class GetPhotosAsync extends AsyncTask<Integer, Void, ArrayList<CitymapsPhoto>> 
         if (exception == null) {
             onPhotosReceivedListener.onPhotosReceived(photos);
         } else {
-            Toast.makeText(context, "Sorry there was a problem getting photos", Toast.LENGTH_LONG).show();
+            Toast.makeText(context, context.getString(R.string.prompt_problem_getting_photos)
+                    , Toast.LENGTH_LONG).show();
         }
     }
 
